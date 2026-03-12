@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameStore TZ - Download & Buy Games</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #1a1a1a; color: white; }
+        header { background: #333; padding: 20px; text-align: center; border-bottom: 3px solid #ff4500; }
+        .container { padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; }
+        .game-card { background: #2a2a2a; margin: 10px; padding: 15px; width: 250px; border-radius: 10px; text-align: center; transition: 0.3s; }
+        .game-card:hover { transform: scale(1.05); border: 1px solid #ff4500; }
+        .game-card img { width: 100%; border-radius: 8px; }
+        .price { color: #ff4500; font-weight: bold; font-size: 1.2em; }
+        .buy-btn { background: #ff4500; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 10px; width: 100%; }
+        .buy-btn:hover { background: #e03e00; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>GameStore TZ</h1>
+    <p>Pakua na Nunua Games na Programu Bora</p>
+</header>
+
+<div class="container">
+    <div class="game-card">
+        <img src="https://via.placeholder.com/250x150" alt="Game Cover">
+        <h3>Cyber Strike 2026</h3>
+        <p class="price">TSH 25,000</p>
+        <button class="buy-btn">Nunua Sasa</button>
+    </div>
+
+    <div class="game-card">
+        <img src="https://via.placeholder.com/250x150" alt="App Cover">
+        <h3>Video Editor Pro</h3>
+        <p class="price">TSH 15,000</p>
+        <button class="buy-btn">Nunua Sasa</button>
+    </div>
+</div>
+
+</body>
+</html>
+
+<div class="game-card">
+    <img src="https://via.placeholder.com/250x150" alt="Cyber Strike">
+    <h3>Cyber Strike 2026</h3>
+    <p class="price">TSH 25,000</p>
+    <button class="buy-btn" onclick="anzaMalipo('Cyber Strike', 25000)">Nunua Sasa</button>
+</div>
+
+<script>
+function anzaMalipo(jinaLaGame, bei) {
+    alert("Unakaribia kununua " + jinaLaGame + " kwa TSH " + bei);
+    
+    // Hapa ndipo tunapoiambia website iwasiliane na mfumo wa malipo
+    // Kwa sasa, tunampeleka mteja kwenye ukurasa wa malipo (Checkout)
+    window.location.href = "https://checkout.mfumowako.com?item=" + jinaLaGame + "&amount=" + bei;
+}
+</script>
