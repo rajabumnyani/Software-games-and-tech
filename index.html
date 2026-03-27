@@ -11,102 +11,131 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajabu Mnyani | Software & Gaming</title>
+    <title>Rajabu Mnyani | Games, Tech & General Store</title>
     <style>
         :root {
             --primary: #38bdf8;
             --dark: #0f172a;
             --card: #1e293b;
             --accent: #10b981;
+            --gaming: #ef4444;
+            --store: #f59e0b; /* Rangi ya dhahabu kwa duka la bidhaa */
         }
         body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: #f8fafc; margin: 0; padding: 0; }
-        nav { background: rgba(15, 23, 42, 0.9); padding: 15px; display: flex; justify-content: space-around; border-bottom: 1px solid var(--primary); position: sticky; top: 0; z-index: 100; }
-        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #0f172a, #1e293b); border-bottom: 2px solid #1e293b; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
+        nav { background: rgba(15, 23, 42, 0.9); padding: 15px; display: flex; justify-content: space-around; border-bottom: 1px solid var(--primary); position: sticky; top: 0; z-index: 100; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.8rem; padding: 5px; }
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #0f172a, #131d30); border-bottom: 2px solid var(--primary); }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
         .card { background: var(--card); padding: 20px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #334155; }
-        h2 { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; }
-        .btn { background: var(--primary); color: var(--dark); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; border: none; cursor: pointer; }
-        .btn-wa { background: #25d366; color: white; }
+        
+        h2 { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; margin-bottom: 20px; }
+        .section-title-store { color: var(--store); border-left: 4px solid var(--store); }
+
+        /* Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 15px; }
+        .item-card { background: #0f172a; border-radius: 10px; overflow: hidden; border: 1px solid #334155; text-align: center; transition: 0.3s; }
+        .item-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .item-card img { width: 100%; height: 150px; object-fit: cover; background: #1e293b; }
+        .item-info { padding: 12px; }
+        .price { color: var(--accent); font-weight: bold; display: block; margin: 5px 0; }
+        
+        .btn { background: var(--primary); color: var(--dark); padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 0.8rem; border: none; cursor: pointer; }
+        .btn-wa { background: #25d366; color: white; margin-top: 10px; }
         input, textarea { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .product-item { background: #0f172a; padding: 15px; border-radius: 10px; border: 1px dashed var(--primary); text-align: center; }
+        
         footer { text-align: center; padding: 30px; color: #94a3b8; background: #070b14; margin-top: 40px; }
-        .contact-info { color: var(--primary); font-weight: bold; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#home">HOME</a>
-        <a href="#downloads">DOWNLOADS</a>
-        <a href="#products">PRODUCTS</a>
+        <a href="#home">GAMES</a>
+        <a href="#store">GENERAL STORE</a>
+        <a href="#downloads">TECH/TOOLS</a>
         <a href="#comments">COMMENTS</a>
-        <a href="#login">LOGIN</a>
+        <a href="https://wa.me/255755771169">ORDER VIA WHATSAPP</a>
     </nav>
 
     <div class="hero" id="home">
-        <h1>RAJABU MNYANI</h1>
-        <p>Software Developer & Gaming Content Creator</p>
-        <div class="contact-info">
-            📞 0755771169 | ✉️ rajabumnyani262@gmail.com
-        </div>
-        <br>
-        <a href="https://wa.me/255755771169" class="btn btn-wa">WhatsApp Me</a>
+        <h1 style="color:var(--gaming)">RAJABU MNYANI (RJM)</h1>
+        <p>Software Developer | Pro Gamer | General Merchant</p>
+        <p style="color:var(--primary)">📞 0755771169 | Dar es Salaam</p>
     </div>
 
     <div class="container">
         
-        <div class="card" id="login">
-            <h2>User Login</h2>
-            <input type="text" placeholder="Jina lako">
-            <input type="password" placeholder="Nenosiri">
-            <button class="btn">Ingia Sasa</button>
+        <h2>Gaming Showcase</h2>
+        <div class="grid">
+            <div class="item-card" style="border-color: var(--gaming);">
+                <img src="https://images.unsplash.com/photo-1594917452427-0b19612a781b?q=80&w=400" alt="COD">
+                <div class="item-info">
+                    <h4>Call of Duty: Special Ops</h4>
+                    <span class="price">Action / FPS</span>
+                    <a href="https://wa.me/255755771169?text=Habari, nahitaji game ya COD" class="btn">Cheza Nami</a>
+                </div>
+            </div>
+            <div class="item-card" style="border-color: var(--gaming);">
+                <img src="https://images.unsplash.com/photo-1518384401463-d387dd16363c?q=80&w=400" alt="ETS2">
+                <div class="item-info">
+                    <h4>Euro Truck Simulator 2</h4>
+                    <span class="price">Simulation</span>
+                    <a href="https://wa.me/255755771169?text=Habari, nahitaji mods za ETS2" class="btn">Pata Mods</a>
+                </div>
+            </div>
         </div>
 
-        <div class="card" id="downloads">
-            <h2>Downloads Area</h2>
-            <p>Pakua Mods na Software Tools hapa chini:</p>
+        <h2 class="section-title-store" id="store">RJM General Store</h2>
+        <p>Tunaandaa bidhaa bora kwa ajili yako:</p>
+        <div class="grid">
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?q=80&w=400" alt="Vipodozi">
+                <div class="item-info">
+                    <h4>Vipodozi & Mafuta</h4>
+                    <p style="font-size: 0.8rem;">Cream na bidhaa za ngozi</p>
+                    <span class="price">Bei Nafuu</span>
+                    <a href="https://wa.me/255755771169?text=Habari, nahitaji vipodozi" class="btn btn-wa">Agiza Sasa</a>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=400" alt="Pafyum">
+                <div class="item-info">
+                    <h4>Pafyum Kali</h4>
+                    <p style="font-size: 0.8rem;">Harufu ya kudumu masaa 24</p>
+                    <span class="price">Tsh 15,000+</span>
+                    <a href="https://wa.me/255755771169?text=Habari, nahitaji pafyum" class="btn btn-wa">Agiza Sasa</a>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=400" alt="Nguo">
+                <div class="item-info">
+                    <h4>Nguo (Fashion)</h4>
+                    <p style="font-size: 0.8rem;">T-shirts na mavazi ya kisasa</p>
+                    <span class="price">Mizigo Mipya</span>
+                    <a href="https://wa.me/255755771169?text=Habari, nahitaji kuona nguo" class="btn btn-wa">Angalia Nguo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="downloads" style="margin-top: 40px;">
+            <h2>Tech & Software Tools</h2>
             <div style="padding: 10px; border-bottom: 1px solid #334155;">
-                <strong>Euro Truck Simulator 2 Mod</strong>
-                <br><a href="#" class="btn" style="background:var(--accent); font-size: 0.8rem;">Download .zip</a>
-            </div>
-            <div style="padding: 10px;">
-                <strong>RJM Tech Toolkit v1.0</strong>
-                <br><a href="#" class="btn" style="background:var(--accent); font-size: 0.8rem;">Download .exe</a>
-            </div>
-        </div>
-
-        <div class="card" id="products">
-            <h2>Our Products</h2>
-            <p>Huduma na bidhaa tunazotoa:</p>
-            <div class="product-grid">
-                <div class="product-item">
-                    <h4>PC Gaming Setup</h4>
-                    <p>Ufungaji wa PC za kisasa</p>
-                    <span style="color:var(--accent)">Tsh 50,000+</span>
-                </div>
-                <div class="product-item">
-                    <h4>Website Design</h4>
-                    <p>Tengenezewa tovuti yako</p>
-                    <span style="color:var(--accent)">Tsh 150,000+</span>
-                </div>
+                <strong>RJM Tech Toolkit v1.1</strong>
+                <br><a href="#" class="btn" style="background:var(--accent); margin-top:5px;">Download .exe</a>
             </div>
         </div>
 
         <div class="card" id="comments">
-            <h2>Acha Maoni (Comments)</h2>
-            <p>Tuambie maoni yako au uliza swali:</p>
+            <h2>Maoni ya Wateja</h2>
             <input type="text" placeholder="Jina lako">
-            <textarea rows="4" placeholder="Andika ujumbe wako hapa..."></textarea>
-            <button class="btn" style="width: 100%;">Tuma Maoni</button>
+            <textarea rows="3" placeholder="Andika maoni yako hapa..."></textarea>
+            <button class="btn" style="width: 100%;">Tuma Ujumbe</button>
         </div>
 
     </div>
 
     <footer>
-        <p><strong>Rajabu Mnyani Software & Gaming</strong></p>
-        <p>Msimbazi St, Dar es Salaam, Tanzania</p>
+        <p><strong>Rajabu Mnyani | RJM Enterprise</strong></p>
+        <p>Dar es Salaam, Tanzania | 0755771169</p>
         <p>&copy; 2026. Haki zote zimehifadhiwa.</p>
     </footer>
 
