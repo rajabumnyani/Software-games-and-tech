@@ -11,104 +11,138 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajabu Mnyani | Software & Gaming</title>
+    <title>Rajabu Mnyani | RJM Smart Hub</title>
     <style>
         :root {
-            --primary: #38bdf8;
-            --dark: #0f172a;
-            --card: #1e293b;
-            --accent: #10b981;
+            --primary: #00d2ff;
+            --dark: #050505;
+            --card-bg: #121212;
+            --accent: #ffcc00;
         }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: #f8fafc; margin: 0; padding: 0; }
-        nav { background: rgba(15, 23, 42, 0.9); padding: 15px; display: flex; justify-content: space-around; border-bottom: 1px solid var(--primary); position: sticky; top: 0; z-index: 100; }
-        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #0f172a, #1e293b); border-bottom: 2px solid #1e293b; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        .card { background: var(--card); padding: 20px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #334155; }
-        h2 { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; }
-        .btn { background: var(--primary); color: var(--dark); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; border: none; cursor: pointer; }
-        .btn-wa { background: #25d366; color: white; }
-        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-        .product-item { background: #0f172a; padding: 15px; border-radius: 10px; border: 1px dashed var(--primary); text-align: center; }
-        footer { text-align: center; padding: 30px; color: #94a3b8; background: #070b14; margin-top: 40px; }
-        .contact-info { color: var(--primary); font-weight: bold; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--dark); color: white; margin: 0; padding: 0; scroll-behavior: smooth; }
+        
+        /* Language Switcher Style */
+        .lang-switch {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            z-index: 2000;
+            background: rgba(0, 210, 255, 0.2);
+            padding: 5px;
+            border-radius: 10px;
+            border: 1px solid var(--primary);
+        }
+        .lang-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+        .lang-btn.active { background: var(--primary); color: black; border-radius: 5px; }
+
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
+        }
+
+        nav { background: rgba(0,0,0,0.9); padding: 15px; display: flex; justify-content: center; gap: 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--primary); }
+        nav a { color: white; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid #222; text-align: center; padding-bottom: 20px; }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        
+        .btn { padding: 10px 20px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn-buy { background: #25d366; color: white; }
+        footer { background: #000; text-align: center; padding: 30px; color: #777; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#home">HOME</a>
-        <a href="#downloads">DOWNLOADS</a>
-        <a href="#products">PRODUCTS</a>
-        <a href="#comments">COMMENTS</a>
-        <a href="#login">LOGIN</a>
-    </nav>
-
-    <div class="hero" id="home">
-        <h1>RAJABU MNYANI</h1>
-        <p>Software Developer & Gaming Content Creator</p>
-        <div class="contact-info">
-            📞 0755771169 | ✉️ rajabumnyani262@gmail.com
-        </div>
-        <br>
-        <a href="https://wa.me/255755771169" class="btn btn-wa">WhatsApp Me</a>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('sw')">SW</button>
+        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
     </div>
 
+    <nav>
+        <a href="#home" id="nav-home">Nyumbani</a>
+        <a href="#downloads" id="nav-downloads">Downloads</a>
+        <a href="#products" id="nav-products">Bidhaa</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1 id="hero-title">RJM SMART HUB</h1>
+        <p id="hero-desc">Suluhisho la Kidijitali na Mavazi ya Kijanja kwa Kila Mtanzania.</p>
+    </section>
+
     <div class="container">
-        
-        <div class="card" id="login">
-            <h2>User Login</h2>
-            <input type="text" placeholder="Jina lako">
-            <input type="password" placeholder="Nenosiri">
-            <button class="btn">Ingia Sasa</button>
-        </div>
-
-        <div class="card" id="downloads">
-            <h2>Downloads Area</h2>
-            <p>Pakua Mods na Software Tools hapa chini:</p>
-            <div style="padding: 10px; border-bottom: 1px solid #334155;">
-                <strong>Euro Truck Simulator 2 Mod</strong>
-                <br><a href="#" class="btn" style="background:var(--accent); font-size: 0.8rem;">Download .zip</a>
+        <h2 id="section-downloads" style="text-align:center; color:var(--primary)">Games & Software</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400">
+                <h3 id="card-games">PC Games</h3>
+                <a href="#" class="btn" style="background:var(--primary)" id="btn-dl1">Download</a>
             </div>
-            <div style="padding: 10px;">
-                <strong>RJM Tech Toolkit v1.0</strong>
-                <br><a href="#" class="btn" style="background:var(--accent); font-size: 0.8rem;">Download .exe</a>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=400">
+                <h3 id="card-soft">Software Tools</h3>
+                <a href="#" class="btn" style="background:var(--primary)" id="btn-dl2">Download</a>
             </div>
         </div>
 
-        <div class="card" id="products">
-            <h2>Our Products</h2>
-            <p>Huduma na bidhaa tunazotoa:</p>
-            <div class="product-grid">
-                <div class="product-item">
-                    <h4>PC Gaming Setup</h4>
-                    <p>Ufungaji wa PC za kisasa</p>
-                    <span style="color:var(--accent)">Tsh 50,000+</span>
-                </div>
-                <div class="product-item">
-                    <h4>Website Design</h4>
-                    <p>Tengenezewa tovuti yako</p>
-                    <span style="color:var(--accent)">Tsh 150,000+</span>
-                </div>
+        <h2 id="section-products" style="text-align:center; color:var(--primary); margin-top:50px;">Nguo za Kijanja</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=400">
+                <h3 id="prod-1">T-Shirts</h3>
+                <span style="color:var(--accent)">Tsh 10,000 - 15,000</span><br><br>
+                <a href="https://wa.me/255755771169" class="btn btn-buy" id="btn-buy1">Agiza WhatsApp</a>
             </div>
         </div>
-
-        <div class="card" id="comments">
-            <h2>Acha Maoni (Comments)</h2>
-            <p>Tuambie maoni yako au uliza swali:</p>
-            <input type="text" placeholder="Jina lako">
-            <textarea rows="4" placeholder="Andika ujumbe wako hapa..."></textarea>
-            <button class="btn" style="width: 100%;">Tuma Maoni</button>
-        </div>
-
     </div>
 
     <footer>
-        <p><strong>Rajabu Mnyani Software & Gaming</strong></p>
-        <p>Msimbazi St, Dar es Salaam, Tanzania</p>
-        <p>&copy; 2026. Haki zote zimehifadhiwa.</p>
+        <p>&copy; 2026 RJM Smart Hub | Rajabu Mnyani</p>
     </footer>
 
+    <script>
+        const translations = {
+            sw: {
+                navHome: "Nyumbani", navDownloads: "Downloads", navProducts: "Bidhaa",
+                heroTitle: "RJM SMART HUB", heroDesc: "Suluhisho la Kidijitali na Mavazi ya Kijanja kwa Kila Mtanzania.",
+                secDownloads: "Games & Software", secProducts: "Nguo za Kijanja",
+                btnDl: "Pakua Sasa", btnBuy: "Agiza WhatsApp"
+            },
+            en: {
+                navHome: "Home", navDownloads: "Downloads", navProducts: "Products",
+                heroTitle: "RJM SMART HUB", heroDesc: "Digital Solutions and Modern Outfits for Everyone.",
+                secDownloads: "Games & Software", secProducts: "Modern Clothing",
+                btnDl: "Download Now", btnBuy: "Order via WhatsApp"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById('nav-home').innerText = translations[lang].navHome;
+            document.getElementById('nav-downloads').innerText = translations[lang].navDownloads;
+            document.getElementById('nav-products').innerText = translations[lang].navProducts;
+            document.getElementById('hero-title').innerText = translations[lang].heroTitle;
+            document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
+            document.getElementById('section-downloads').innerText = translations[lang].secDownloads;
+            document.getElementById('section-products').innerText = translations[lang].secProducts;
+            
+            // Update buttons
+            document.querySelectorAll('.btn-buy').forEach(b => b.innerText = translations[lang].btnBuy);
+            
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
