@@ -11,58 +11,104 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajabu Mnyani | Gaming & Software</title>
+    <title>Rajabu Mnyani | Software & Gaming</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a; /* Rangi ya giza */
-            color: #f8fafc;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
+        :root {
+            --primary: #38bdf8;
+            --dark: #0f172a;
+            --card: #1e293b;
+            --accent: #10b981;
         }
-        .container {
-            background: rgba(30, 41, 59, 0.7);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            border: 1px solid #38bdf8;
-            max-width: 500px;
-            width: 90%;
-        }
-        h1 { color: #38bdf8; margin-bottom: 0.5rem; }
-        p { font-size: 1.1rem; color: #94a3b8; }
-        .links { margin-top: 2rem; }
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            margin: 5px;
-            background-color: #38bdf8;
-            color: #0f172a;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn:hover { background-color: #7dd3fc; transform: scale(1.05); }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: #f8fafc; margin: 0; padding: 0; }
+        nav { background: rgba(15, 23, 42, 0.9); padding: 15px; display: flex; justify-content: space-around; border-bottom: 1px solid var(--primary); position: sticky; top: 0; z-index: 100; }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #0f172a, #1e293b); border-bottom: 2px solid #1e293b; }
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+        .card { background: var(--card); padding: 20px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #334155; }
+        h2 { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; }
+        .btn { background: var(--primary); color: var(--dark); padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; border: none; cursor: pointer; }
+        .btn-wa { background: #25d366; color: white; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .product-item { background: #0f172a; padding: 15px; border-radius: 10px; border: 1px dashed var(--primary); text-align: center; }
+        footer { text-align: center; padding: 30px; color: #94a3b8; background: #070b14; margin-top: 40px; }
+        .contact-info { color: var(--primary); font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#downloads">DOWNLOADS</a>
+        <a href="#products">PRODUCTS</a>
+        <a href="#comments">COMMENTS</a>
+        <a href="#login">LOGIN</a>
+    </nav>
+
+    <div class="hero" id="home">
         <h1>RAJABU MNYANI</h1>
         <p>Software Developer & Gaming Content Creator</p>
-        
-        <div class="links">
-            <a href="#" class="btn">YouTube</a>
-            <a href="#" class="btn">TikTok</a>
-            <a href="#" class="btn">GitHub</a>
+        <div class="contact-info">
+            📞 0755771169 | ✉️ rajabumnyani262@gmail.com
         </div>
+        <br>
+        <a href="https://wa.me/255755771169" class="btn btn-wa">WhatsApp Me</a>
     </div>
+
+    <div class="container">
+        
+        <div class="card" id="login">
+            <h2>User Login</h2>
+            <input type="text" placeholder="Jina lako">
+            <input type="password" placeholder="Nenosiri">
+            <button class="btn">Ingia Sasa</button>
+        </div>
+
+        <div class="card" id="downloads">
+            <h2>Downloads Area</h2>
+            <p>Pakua Mods na Software Tools hapa chini:</p>
+            <div style="padding: 10px; border-bottom: 1px solid #334155;">
+                <strong>Euro Truck Simulator 2 Mod</strong>
+                <br><a href="#" class="btn" style="background:var(--accent); font-size: 0.8rem;">Download .zip</a>
+            </div>
+            <div style="padding: 10px;">
+                <strong>RJM Tech Toolkit v1.0</strong>
+                <br><a href="#" class="btn" style="background:var(--accent); font-size: 0.8rem;">Download .exe</a>
+            </div>
+        </div>
+
+        <div class="card" id="products">
+            <h2>Our Products</h2>
+            <p>Huduma na bidhaa tunazotoa:</p>
+            <div class="product-grid">
+                <div class="product-item">
+                    <h4>PC Gaming Setup</h4>
+                    <p>Ufungaji wa PC za kisasa</p>
+                    <span style="color:var(--accent)">Tsh 50,000+</span>
+                </div>
+                <div class="product-item">
+                    <h4>Website Design</h4>
+                    <p>Tengenezewa tovuti yako</p>
+                    <span style="color:var(--accent)">Tsh 150,000+</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="comments">
+            <h2>Acha Maoni (Comments)</h2>
+            <p>Tuambie maoni yako au uliza swali:</p>
+            <input type="text" placeholder="Jina lako">
+            <textarea rows="4" placeholder="Andika ujumbe wako hapa..."></textarea>
+            <button class="btn" style="width: 100%;">Tuma Maoni</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>Rajabu Mnyani Software & Gaming</strong></p>
+        <p>Msimbazi St, Dar es Salaam, Tanzania</p>
+        <p>&copy; 2026. Haki zote zimehifadhiwa.</p>
+    </footer>
 
 </body>
 </html>
