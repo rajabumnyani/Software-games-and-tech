@@ -11,137 +11,165 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajabu Mnyani | RJM Smart Hub</title>
+    <title>Rajabu Mnyani | Tech & Fashion Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00d2ff;
-            --dark: #050505;
-            --card-bg: #121212;
-            --accent: #ffcc00;
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --dark: #020617;
+            --card: #111827;
+            --accent: #fbbf24;
         }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--dark); color: white; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--dark); color: #f8fafc; margin: 0; padding: 0; scroll-behavior: smooth; }
         
-        /* Language Switcher Style */
-        .lang-switch {
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            z-index: 2000;
-            background: rgba(0, 210, 255, 0.2);
-            padding: 5px;
-            border-radius: 10px;
-            border: 1px solid var(--primary);
-        }
-        .lang-btn {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-        }
-        .lang-btn.active { background: var(--primary); color: black; border-radius: 5px; }
+        /* Language Control */
+        .lang-control { position: fixed; top: 80px; right: 20px; z-index: 3000; background: rgba(30, 41, 59, 0.8); border: 1px solid var(--primary); border-radius: 30px; display: flex; overflow: hidden; }
+        .lang-btn { background: none; border: none; color: white; padding: 8px 15px; cursor: pointer; font-size: 0.8rem; font-weight: bold; }
+        .lang-btn.active { background: var(--primary); color: black; }
 
+        /* Navigation */
+        nav { background: rgba(2, 6, 23, 0.95); padding: 15px; display: flex; justify-content: center; gap: 25px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0, 242, 254, 0.3); }
+        nav a { color: #f8fafc; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Hero Section - Nature Scene */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200');
+            height: 85vh;
+            background: linear-gradient(rgba(2, 6, 23, 0.5), rgba(2, 6, 23, 0.7)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1400');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
         }
+        .hero h1 { font-size: 4rem; margin: 0; color: #fff; text-shadow: 0 4px 15px rgba(0,0,0,0.5); font-weight: 700; }
+        .hero p { font-size: 1.2rem; max-width: 800px; color: #e2e8f0; margin-top: 15px; }
 
-        nav { background: rgba(0,0,0,0.9); padding: 15px; display: flex; justify-content: center; gap: 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--primary); }
-        nav a { color: white; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+        .container { max-width: 1200px; margin: auto; padding: 50px 20px; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); }
 
-        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid #222; text-align: center; padding-bottom: 20px; }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
+        /* Grid for Products & Downloads */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid #1e293b; transition: 0.4s; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1); }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .card-info { padding: 25px; text-align: center; }
+        .card-info h3 { margin: 0 0 10px 0; font-size: 1.4rem; color: #fff; }
+        .card-info p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; }
         
-        .btn { padding: 10px 20px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
-        .btn-buy { background: #25d366; color: white; }
-        footer { background: #000; text-align: center; padding: 30px; color: #777; border-top: 1px solid #222; }
+        .price { color: var(--accent); font-size: 1.3rem; font-weight: bold; display: block; margin-bottom: 20px; }
+        
+        .btn { padding: 12px 30px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; font-size: 0.9rem; }
+        .btn-dl { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: black; }
+        .btn-wa { background: #22c55e; color: white; }
+
+        footer { background: #000; text-align: center; padding: 60px 20px; border-top: 1px solid #1e293b; color: #475569; }
     </style>
 </head>
 <body>
 
-    <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLanguage('sw')">SW</button>
-        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+    <div class="lang-control">
+        <button id="sw-btn" class="lang-btn active" onclick="changeLanguage('sw')">Kiswahili</button>
+        <button id="en-btn" class="lang-btn" onclick="changeLanguage('en')">English</button>
     </div>
 
     <nav>
-        <a href="#home" id="nav-home">Nyumbani</a>
-        <a href="#downloads" id="nav-downloads">Downloads</a>
-        <a href="#products" id="nav-products">Bidhaa</a>
+        <a href="#home" id="n-home">Nyumbani</a>
+        <a href="#downloads" id="n-dl">Downloads</a>
+        <a href="#products" id="n-shop">Mavazi</a>
     </nav>
 
     <section class="hero" id="home">
-        <h1 id="hero-title">RJM SMART HUB</h1>
-        <p id="hero-desc">Suluhisho la Kidijitali na Mavazi ya Kijanja kwa Kila Mtanzania.</p>
+        <h1 id="h-title">RAJABU MNYANI</h1>
+        <p id="h-desc">Ulimwengu wa Tech, Gaming, na Mavazi ya Kijanja yenye Mandhari ya Kuvutia na Bei Rafiki kwa Kila Mtu.</p>
     </section>
 
     <div class="container">
-        <h2 id="section-downloads" style="text-align:center; color:var(--primary)">Games & Software</h2>
+        <div class="section-header" id="downloads">
+            <h2 id="t-dl" style="text-align:center; color:var(--primary); font-size: 2.5rem;">Software & Games</h2>
+        </div>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400">
-                <h3 id="card-games">PC Games</h3>
-                <a href="#" class="btn" style="background:var(--primary)" id="btn-dl1">Download</a>
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=500" alt="COD">
+                <div class="card-info">
+                    <h3>Call of Duty (FitGirl)</h3>
+                    <p id="p-cod">Direct download compressed repack.</p>
+                    <a href="https://fitgirl-repacks.site/all-repacks-a-z/" class="btn btn-dl" target="_blank" id="b-dl1">Download Sasa</a>
+                </div>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=400">
-                <h3 id="card-soft">Software Tools</h3>
-                <a href="#" class="btn" style="background:var(--primary)" id="btn-dl2">Download</a>
+                <img src="https://images.unsplash.com/photo-1518384401463-d387dd16363c?q=80&w=500" alt="ETS2">
+                <div class="card-info">
+                    <h3>Euro Truck Simulator (ElAmigos)</h3>
+                    <p id="p-ets">Simulation game direct link.</p>
+                    <a href="https://elamigos.site/" class="btn btn-dl" target="_blank" id="b-dl2">Download Sasa</a>
+                </div>
             </div>
         </div>
 
-        <h2 id="section-products" style="text-align:center; color:var(--primary); margin-top:50px;">Nguo za Kijanja</h2>
+        <div class="section-header" id="products" style="margin-top: 80px;">
+            <h2 id="t-shop" style="text-align:center; color:var(--primary); font-size: 2.5rem;">Mavazi ya Kijanja</h2>
+        </div>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=400">
-                <h3 id="prod-1">T-Shirts</h3>
-                <span style="color:var(--accent)">Tsh 10,000 - 15,000</span><br><br>
-                <a href="https://wa.me/255755771169" class="btn btn-buy" id="btn-buy1">Agiza WhatsApp</a>
+                <img src="https://images.unsplash.com/photo-1550928431-ee0ec6db30d3?q=80&w=500" alt="Fashion">
+                <div class="card-info">
+                    <h3 id="p1-name">Smart Streetwear</h3>
+                    <p id="p1-desc">Nguo kali za kijanja na nyumbani.</p>
+                    <span class="price">Tsh 15,000 - 25,000</span>
+                    <a href="https://wa.me/255755771169" class="btn btn-wa" id="b-wa1">Agiza WhatsApp</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=500" alt="Shoes">
+                <div class="card-info">
+                    <h3 id="p2-name">Urban Sneakers</h3>
+                    <p id="p2-desc">Viatu vya kisasa kwa bei rafiki.</p>
+                    <span class="price">Tsh 20,000 - 35,000</span>
+                    <a href="https://wa.me/255755771169" class="btn btn-wa" id="b-wa2">Agiza WhatsApp</a>
+                </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 RJM Smart Hub | Rajabu Mnyani</p>
+        <p><strong>Rajabu Jafary Mnyani</strong> | 0755771169</p>
+        <p id="f-text">© 2026 Rajabu Mnyani Hub. Ubora kwa Kila Mtu.</p>
     </footer>
 
     <script>
-        const translations = {
+        const content = {
             sw: {
-                navHome: "Nyumbani", navDownloads: "Downloads", navProducts: "Bidhaa",
-                heroTitle: "RJM SMART HUB", heroDesc: "Suluhisho la Kidijitali na Mavazi ya Kijanja kwa Kila Mtanzania.",
-                secDownloads: "Games & Software", secProducts: "Nguo za Kijanja",
-                btnDl: "Pakua Sasa", btnBuy: "Agiza WhatsApp"
+                nHome: "Nyumbani", nDl: "Downloads", nShop: "Mavazi",
+                hTitle: "RAJABU MNYANI", hDesc: "Ulimwengu wa Tech, Gaming, na Mavazi ya Kijanja yenye Mandhari ya Kuvutia na Bei Rafiki kwa Kila Mtu.",
+                tDl: "Software & Games", tShop: "Mavazi ya Kijanja", bDl: "Download Sasa", bWa: "Agiza WhatsApp", f: "© 2026 Rajabu Mnyani Hub. Ubora kwa Kila Mtu."
             },
             en: {
-                navHome: "Home", navDownloads: "Downloads", navProducts: "Products",
-                heroTitle: "RJM SMART HUB", heroDesc: "Digital Solutions and Modern Outfits for Everyone.",
-                secDownloads: "Games & Software", secProducts: "Modern Clothing",
-                btnDl: "Download Now", btnBuy: "Order via WhatsApp"
+                nHome: "Home", nDl: "Downloads", nShop: "Clothing",
+                hTitle: "RAJABU MNYANI", hDesc: "The world of Tech, Gaming, and Modern Outfits with Stunning Landscapes and Budget-Friendly Prices for Everyone.",
+                tDl: "Software & Games", tShop: "Modern Outfits", bDl: "Download Now", bWa: "Order WhatsApp", f: "© 2026 Rajabu Mnyani Hub. Quality for Everyone."
             }
         };
 
-        function setLanguage(lang) {
-            document.getElementById('nav-home').innerText = translations[lang].navHome;
-            document.getElementById('nav-downloads').innerText = translations[lang].navDownloads;
-            document.getElementById('nav-products').innerText = translations[lang].navProducts;
-            document.getElementById('hero-title').innerText = translations[lang].heroTitle;
-            document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
-            document.getElementById('section-downloads').innerText = translations[lang].secDownloads;
-            document.getElementById('section-products').innerText = translations[lang].secProducts;
-            
-            // Update buttons
-            document.querySelectorAll('.btn-buy').forEach(b => b.innerText = translations[lang].btnBuy);
-            
-            // Update active button state
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        function changeLanguage(lang) {
+            document.getElementById('n-home').innerText = content[lang].nHome;
+            document.getElementById('n-dl').innerText = content[lang].nDl;
+            document.getElementById('n-shop').innerText = content[lang].nShop;
+            document.getElementById('h-title').innerText = content[lang].hTitle;
+            document.getElementById('h-desc').innerText = content[lang].hDesc;
+            document.getElementById('t-dl').innerText = content[lang].tDl;
+            document.getElementById('t-shop').innerText = content[lang].tShop;
+            document.getElementById('b-dl1').innerText = content[lang].bDl;
+            document.getElementById('b-dl2').innerText = content[lang].bDl;
+            document.getElementById('b-wa1').innerText = content[lang].bWa;
+            document.getElementById('b-wa2').innerText = content[lang].bWa;
+            document.getElementById('f-text').innerText = content[lang].f;
+
+            if(lang === 'sw') {
+                document.getElementById('sw-btn').classList.add('active');
+                document.getElementById('en-btn').classList.remove('active');
+            } else {
+                document.getElementById('en-btn').classList.add('active');
+                document.getElementById('sw-btn').classList.remove('active');
+            }
         }
     </script>
 </body>
